@@ -1,7 +1,7 @@
 {
     "name": "xdimedrolx/cometchat-php-sdk",
     "type": "library",
-    "license": "Mozilla Public License Version 2.0",
+    "license": "MPL-2.0",
     "keywords": ["cometchat", "sdk", "chat"],
     "autoload": {
         "psr-4": {
