@@ -1,0 +1,8 @@
+{
+  "error": {
+    "message": "The UID 123123 does not exist, please make sure you have created a user with UID 123123.",
+    "devMessage": "The UID 123123 does not exist, so please make sure you have created a user with UID 123123.",
+    "source": "chat-api",
+    "code": "ERR_UID_NOT_FOUND"
+  }
+}

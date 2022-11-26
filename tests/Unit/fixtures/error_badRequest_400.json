@@ -1,0 +1,16 @@
+{
+  "error": {
+    "message": "Failed to validate the data sent with the request.",
+    "devMessage": "Failed to validate the data sent with the request.",
+    "source": "chat-api",
+    "details": {
+      "uid": [
+        "The uid field is required."
+      ],
+      "name": [
+        "The name field is required."
+      ]
+    },
+    "code": "ERR_BAD_REQUEST"
+  }
+}

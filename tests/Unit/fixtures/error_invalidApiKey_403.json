@@ -1,0 +1,8 @@
+{
+  "error": {
+    "message": "The key 1234567890 cannot be used to perform this operation. Please use API key with a correct scope to perform the operation.",
+    "devMessage": "The 1234567890 key does not have enough clearance. To perform the operation, please use the API key with the correct scope.",
+    "source": "chat-api",
+    "code": "AUTH_ERR_NO_ACCESS"
+  }
+}

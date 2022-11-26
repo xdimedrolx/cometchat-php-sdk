@@ -15,6 +15,7 @@ use CometChat\Chat\HttpClient\QueryRenderer;
 use CometChat\Chat\HttpClient\RequestBuilder;
 use CometChat\Chat\Hydrator\Hydrator;
 use CometChat\Chat\Hydrator\NoopHydrator;
+use CometChat\Chat\Model\Error;
 use CometChat\Chat\Model\QueryParams;
 use Http\Client\HttpAsyncClient;
 use Http\Promise\Promise;
@@ -328,28 +329,33 @@ abstract class HttpApi
      */
     private function handleErrors(ResponseInterface $response)
     {
+        $error = null;
+        if (isset($response->getBody()['error'])) {
+            $error = $this->serializer->deserialize(
+                $response->getBody()['error'],
+                Error::class,
+                'json'
+            );
+        }
+
         $statusCode = $response->getStatusCode();
         switch ($statusCode) {
             case 400:
-                throw HttpClientException::badRequest($response);
+                throw HttpClientException::badRequest($error);
             case 401:
-                throw HttpClientException::unauthorized($response);
-            case 402:
-                throw HttpClientException::requestFailed($response);
+                throw HttpClientException::unauthorized($error);
             case 403:
-                throw HttpClientException::forbidden($response);
+                throw HttpClientException::forbidden($error);
             case 404:
-                throw HttpClientException::notFound($response);
+                throw HttpClientException::notFound($error);
             case 409:
-                throw HttpClientException::alreadyExists($response);
+                throw HttpClientException::alreadyExists($error);
             case 413:
-                throw HttpClientException::payloadTooLarge($response);
-            case 500 > $statusCode:
-                throw new HttpClientException($response->getReasonPhrase(), $response->getStatusCode(), $response);
+                throw HttpClientException::payloadTooLarge($error);
             case 500 <= $statusCode:
-                throw HttpServerException::serverError($response, $statusCode);
+                throw HttpServerException::serverError($statusCode, $error);
             default:
-                throw new UnknownErrorException();
+                throw HttpServerException::unknownHttpResponseCode($statusCode, $error);
         }
     }
 
@@ -365,7 +371,7 @@ abstract class HttpApi
         return $this->serializer->serialize(
             $body,
             'json',
-            SerializationContext::create()->setGroups($groups)->setSerializeNull(true)
+            SerializationContext::create()->setGroups($groups)
         );
     }
 
