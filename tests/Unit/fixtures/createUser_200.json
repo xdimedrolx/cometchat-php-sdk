@@ -1,0 +1,19 @@
+{
+  "data": {
+    "uid": "superhero6",
+    "name": "Barry Allen",
+    "link": "http://placehold.it",
+    "avatar": "http://placehold.it/120x120&text=image1",
+    "metadata": {
+      "externalId": "1849031"
+    },
+    "status": "offline",
+    "role": "manager",
+    "createdAt": 1638354015,
+    "tags": [
+      "Engineer",
+      "manager"
+    ],
+    "authToken": "superhero6_16383540156641d37a023c75d26f4c22a21ff126"
+  }
+}

@@ -1,0 +1,61 @@
+{
+    "name": "xdimedrolx/cometchat-php-sdk",
+    "type": "library",
+    "license": "Mozilla Public License Version 2.0",
+    "keywords": ["cometchat", "sdk", "chat"],
+    "autoload": {
+        "psr-4": {
+            "CometChat\\Chat\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CometChat\\Chat\\Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "xdimedrolx",
+            "email": "xdimedrolx@yandex.ru"
+        }
+    ],
+    "suggest": {
+        "nyholm/psr7": "PSR-7 message implementation",
+        "symfony/http-client": "HTTP client"
+    },
+    "require": {
+        "php": ">=7.4|>=8.0",
+        "jms/serializer": "^3.14",
+        "webmozart/assert": "^1.10",
+        "psr/log": "^1.1",
+        "psr/http-message": "^1.0",
+        "bentools/querystring": "^1.1",
+        "php-http/httplug": "^2.2",
+        "php-http/message-factory": "^1.0",
+        "php-http/discovery": "^1.14",
+        "php-http/client-implementation": "^1.0",
+        "php-http/async-client-implementation": "^1.0",
+        "psr/cache-implementation": "^1.0",
+        "psr/cache": "^1.0",
+        "symfony/expression-language": ">=4.4",
+        "cache/psr-6-doctrine-bridge": "^3.1",
+        "guzzlehttp/psr7": "^1.8",
+        "guzzlehttp/promises": "^1.4",
+        "league/uri": "^6.7",
+        "php-http/multipart-stream-builder": "^1.2"
+    },
+    "require-dev": {
+        "php-http/mock-client": "^1.4",
+        "php-http/message": "^1.11",
+        "cache/array-adapter": "^1.1",
+        "phpunit/phpunit": "^9.3",
+        "friendsofphp/php-cs-fixer": "^3.13",
+        "phpstan/phpstan": "^1.9",
+        "nyholm/psr7": "^1.5"
+    },
+    "scripts": {
+        "test": "phpunit",
+        "pcf": "php-cs-fixer fix src",
+        "phpstan": "phpstan"
+    }
+}

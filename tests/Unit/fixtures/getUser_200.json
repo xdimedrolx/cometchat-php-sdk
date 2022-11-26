@@ -1,0 +1,10 @@
+{
+  "data": {
+    "uid": "superhero6",
+    "name": "Barry Allen",
+    "avatar": "http://placehold.it/120x120&text=image1",
+    "status": "offline",
+    "role": "default",
+    "createdAt": 1629869270
+  }
+}

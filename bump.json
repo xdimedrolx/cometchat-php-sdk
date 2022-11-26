@@ -1,0 +1,52 @@
+{
+  "force": false,
+  "silent": false,
+  "files": {
+    "src/Version.php": ["(\\d+.\\d+.\\d+)", "[version]", "i"]
+  },
+  "version": {
+    "enabled": true,
+    "initial": "0.0.37",
+    "increments": ["major", "minor", "patch", "premajor", "preminor", "prepatch", "prerelease", "custom"]
+  },
+  "changelog": {
+    "enabled": true,
+    "create": true,
+    "open": true,
+    "file": "CHANGELOG.md",
+    "version": "### Version [version]",
+    "commit": "- [message]",
+    "separator": "\n"
+  },
+  "commit": {
+    "enabled": true,
+    "message": "Bumped version to [version]"
+  },
+  "tag": {
+    "enabled": true,
+    "name": "[version]"
+  },
+  "release": {
+    "enabled": false
+  },
+  "tokens": {
+    "date": {
+      "format": "YYYY-MM-DD"
+    },
+    "version_date": {
+      "format": "YYYY-MM-DD"
+    }
+  },
+  "scripts": {
+    "prebump": "",
+    "postbump": "",
+    "prechangelog": "",
+    "postchangelog": "",
+    "precommit": "",
+    "postcommit": "",
+    "pretag": "",
+    "posttag": "",
+    "prerelease": "",
+    "postrelease": ""
+  }
+}
