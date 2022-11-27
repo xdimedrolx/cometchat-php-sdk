@@ -16,6 +16,7 @@ use Psr\Http\Message\ResponseInterface;
 final class History implements Journal
 {
     use HistoryTrait;
+
     /**
      * @var ResponseInterface
      */
