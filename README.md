@@ -28,10 +28,11 @@ $user = $client->user()->get('superhero')->getData();
 
 ## TODO
 
-- [ ] Users
-- [ ] Groups
+- [x] Users
+- [x] Groups
 - [ ] Auth Tokens
 - [ ] Members
 - [ ] Messages
+- [ ] Tests
 
 [composer]: http://getcomposer.org/

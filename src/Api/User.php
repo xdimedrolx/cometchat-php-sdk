@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CometChat\Chat\Api;
 
 use CometChat\Chat\Exception\UnknownErrorException;
+use CometChat\Chat\Model\DeleteResponse;
 use CometChat\Chat\Model\User\CreateRequest;
 use CometChat\Chat\Model\User\CreateResponse;
 use CometChat\Chat\Model\User\ListQuery;
@@ -83,5 +84,20 @@ class User extends HttpApi
         $response = $this->httpPut(sprintf('/users/%s', $uid), $request);
 
         return $this->hydrateResponse($response, UserResponse::class, ['Default']);
+    }
+
+    /**
+     * Deletes a user for the specified UID.
+     *
+     * @param  string                   $uid
+     * @return DeleteResponse
+     * @throws ClientExceptionInterface
+     * @throws UnknownErrorException
+     */
+    public function delete(string $uid): DeleteResponse
+    {
+        $response = $this->httpDelete(sprintf('/users/%s', $uid), []);
+
+        return $this->hydrateResponse($response, DeleteResponse::class, ['Default']);
     }
 }

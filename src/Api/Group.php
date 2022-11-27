@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace CometChat\Chat\Api;
 
 use CometChat\Chat\Exception\UnknownErrorException;
+use CometChat\Chat\Model\DeleteResponse;
 use CometChat\Chat\Model\Group\CreateRequest;
 use CometChat\Chat\Model\Group\CreateResponse;
 use CometChat\Chat\Model\Group\GroupResponse;
@@ -83,5 +84,20 @@ class Group extends HttpApi
         $response = $this->httpPut(sprintf('/groups/%s', $guid), $request);
 
         return $this->hydrateResponse($response, GroupResponse::class, ['Default']);
+    }
+
+    /**
+     * Deletes a group with a given GUID.
+     *
+     * @param  string                   $guid
+     * @return DeleteResponse
+     * @throws ClientExceptionInterface
+     * @throws UnknownErrorException
+     */
+    public function delete(string $guid): DeleteResponse
+    {
+        $response = $this->httpDelete(sprintf('/groups/%s', $guid), []);
+
+        return $this->hydrateResponse($response, DeleteResponse::class, ['Default']);
     }
 }
