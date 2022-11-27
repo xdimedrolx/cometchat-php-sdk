@@ -13,6 +13,7 @@ class Settings
      * @phpstan-var SettingValue::*|null
      * @var string|null
      * @Serializer\Type("string")
+     * @Serializer\SkipWhenEmpty
      */
     protected $listUsers;
 
@@ -20,6 +21,7 @@ class Settings
      * @phpstan-var SettingValue::*|null
      * @var string|null
      * @Serializer\Type("string")
+     * @Serializer\SkipWhenEmpty
      */
     protected $sendMessagesTo;
 
@@ -38,6 +40,7 @@ class Settings
     {
         Assert::inArray($value, [SettingValue::ALL, SettingValue::FRIENDS_ONLY]);
         $this->listUsers = $value;
+
         return $this;
     }
 
@@ -56,6 +59,7 @@ class Settings
     {
         Assert::inArray($value, [SettingValue::ALL, SettingValue::FRIENDS_ONLY]);
         $this->sendMessagesTo = $value;
+
         return $this;
     }
 }
