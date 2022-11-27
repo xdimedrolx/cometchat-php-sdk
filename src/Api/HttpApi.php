@@ -323,19 +323,16 @@ abstract class HttpApi
     /**
      * Throw the correct exception for this error.
      *
-     * @throws UnknownErrorException
      * @throws HttpClientException
      * @throws HttpServerException
      */
     private function handleErrors(ResponseInterface $response)
     {
         $error = null;
-        if (isset($response->getBody()['error'])) {
-            $error = $this->serializer->deserialize(
-                $response->getBody()['error'],
-                Error::class,
-                'json'
-            );
+
+        $data = json_decode($response->getBody()->__toString(), true);
+        if ($data && isset($data['error'])) {
+            $error = $this->serializer->fromArray($data['error'], Error::class);
         }
 
         $statusCode = $response->getStatusCode();
