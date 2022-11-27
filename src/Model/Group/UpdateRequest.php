@@ -76,7 +76,7 @@ class UpdateRequest
     protected $tags = [];
 
     /**
-     * The unsettable user attributes are icon, description and metadata.
+     * The unsettable group attributes are icon, description and metadata.
      *
      * @var string[]
      * @Serializer\SkipWhenEmpty()

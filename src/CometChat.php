@@ -6,6 +6,7 @@ namespace CometChat\Chat;
 
 use CometChat\Chat\Api\AuthToken;
 use CometChat\Chat\Api\Group;
+use CometChat\Chat\Api\Role;
 use CometChat\Chat\Api\User;
 use CometChat\Chat\HttpClient\HttpClientConfigurator;
 use CometChat\Chat\HttpClient\Plugin\History;
@@ -72,7 +73,8 @@ class CometChat
      * @phpstan-var array{
      *     user: User,
      *     group: Group,
-     *     authToken: AuthToken
+     *     authToken: AuthToken,
+     *     role: Role
      * }
      * @var array
      */
@@ -151,12 +153,18 @@ class CometChat
         return $this->apiClients['authToken'];
     }
 
+    public function role(): Role
+    {
+        return $this->apiClients['role'];
+    }
+
     private function buildApiClients(): void
     {
         $this->apiClients = [
             'authToken' => $this->makeApi(AuthToken::class),
             'user' => $this->makeApi(User::class),
             'group' => $this->makeApi(Group::class),
+            'role' => $this->makeApi(Role::class),
         ];
     }
 
