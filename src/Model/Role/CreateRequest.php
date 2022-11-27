@@ -38,6 +38,7 @@ class CreateRequest
      *
      * @var Metadata
      * @Serializer\Type("CometChat\Chat\Model\Metadata")
+     * @Serializer\SkipWhenEmpty
      */
     protected $metadata;
 
@@ -46,6 +47,7 @@ class CreateRequest
      *
      * @var Settings
      * @Serializer\Type("CometChat\Chat\Model\Role\Settings")
+     * @Serializer\SkipWhenEmpty
      */
     protected $settings;
 

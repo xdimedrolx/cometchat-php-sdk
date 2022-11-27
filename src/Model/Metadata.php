@@ -79,4 +79,9 @@ class Metadata implements \ArrayAccess, \JsonSerializable
     {
         return \json_encode($this->data);
     }
+
+    public function getData(): array
+    {
+        return $this->data;
+    }
 }

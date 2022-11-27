@@ -33,15 +33,15 @@ class MetadataHandler implements SubscribingHandlerInterface
     }
 
     /**
-     * @param JsonSerializationVisitor $visitor
-     * @param $value
-     * @param  array   $type
-     * @param  Context $context
+     * @param  JsonSerializationVisitor $visitor
+     * @param  Metadata|null            $value
+     * @param  array                    $type
+     * @param  Context                  $context
      * @return mixed
      */
     public function serializeToJson(JsonSerializationVisitor $visitor, $value, array $type, Context $context)
     {
-        return $value;
+        return $value ? $value->getData() : null;
     }
 
     public function deserializeFromJson(

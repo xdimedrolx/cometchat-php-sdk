@@ -30,6 +30,7 @@ class UpdateRequest
      *
      * @var Metadata
      * @Serializer\Type("CometChat\Chat\Model\Metadata")
+     * @Serializer\SkipWhenEmpty
      */
     protected $metadata;
 
@@ -38,6 +39,7 @@ class UpdateRequest
      *
      * @var Settings
      * @Serializer\Type("CometChat\Chat\Model\Role\Settings")
+     * @Serializer\SkipWhenEmpty
      */
     protected $settings;
 
