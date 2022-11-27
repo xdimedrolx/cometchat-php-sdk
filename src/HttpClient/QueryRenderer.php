@@ -11,7 +11,7 @@ use BenTools\QueryString\Renderer\QueryStringRendererInterface;
 class QueryRenderer implements QueryStringRendererInterface
 {
     /**
-     * @var NativeRenderer
+     * @var QueryStringRendererInterface
      */
     private $renderer;
 
@@ -51,7 +51,7 @@ class QueryRenderer implements QueryStringRendererInterface
     /**
      * {@inheritDoc}
      */
-    public function withEncoding(int $encoding): QueryStringRendererInterface
+    public function withEncoding(int $encoding): self
     {
         return new self($this->renderer->withEncoding($encoding));
     }
@@ -67,7 +67,7 @@ class QueryRenderer implements QueryStringRendererInterface
     /**
      * {@inheritDoc}
      */
-    public function withSeparator(?string $separator): QueryStringRendererInterface
+    public function withSeparator(?string $separator): self
     {
         return new self($this->renderer->withSeparator($separator));
     }

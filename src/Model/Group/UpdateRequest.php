@@ -114,10 +114,14 @@ class UpdateRequest
     }
 
     /**
-     * @param string|null $type
+     * @param string $type
+     * @phpstan-param GroupType::* $type
+     * @param string|null $password
      */
     public function setTypeAndPassword(string $type, ?string $password = null): void
     {
+        Assert::inArray($type, [GroupType::PUBLIC, GroupType::PROTECTED, GroupType::PASSWORD]);
+
         $this->type = $type;
         $this->password = $password;
 

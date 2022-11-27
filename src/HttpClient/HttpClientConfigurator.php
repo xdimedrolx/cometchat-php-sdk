@@ -34,7 +34,7 @@ final class HttpClientConfigurator
     private $debug = false;
 
     /**
-     * @var LoggerInterface
+     * @var LoggerInterface|null
      */
     private $logger;
 

@@ -80,6 +80,13 @@ class CreateRequest
      */
     protected $metadata;
 
+    /**
+     * @param string $guid
+     * @param string $name
+     * @param string $type
+     * @phpstan-param GroupType::* $type
+     * @param string|null $password
+     */
     public function __construct(string $guid, string $name, string $type, ?string $password = null)
     {
         Assert::inArray($type, [GroupType::PASSWORD, GroupType::PUBLIC, GroupType::PROTECTED]);
