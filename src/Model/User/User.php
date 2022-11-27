@@ -10,6 +10,8 @@ use JMS\Serializer\Annotation as Serializer;
 class User
 {
     /**
+     * Unique identifier of the user.
+     *
      * @var string
      * @Serializer\Type("string")
      */

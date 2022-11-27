@@ -10,8 +10,9 @@ use JMS\Serializer\Annotation as Serializer;
 class CreateRequest
 {
     /**
-     * Unique identifier of the user. Please refer to https://prodocs.cometchat.com/docs/concepts#uid.
+     * Unique identifier of the user.
      *
+     * @see https://prodocs.cometchat.com/docs/concepts#uid
      * @var string
      * @Serializer\Type("string")
      */
@@ -40,6 +41,7 @@ class CreateRequest
     /**
      * @var Metadata
      * @Serializer\Type("CometChat\Chat\Model\Metadata")
+     * @Serializer\SkipWhenEmpty
      */
     protected $metadata;
 
@@ -51,14 +53,19 @@ class CreateRequest
     protected $status;
 
     /**
+     * User role of the user for role based access control.
+     *
      * @var string|null
      * @Serializer\Type("string")
      */
     protected $role;
 
     /**
+     * A list of tags to identify specific users.
+     *
      * @var string[]
      * @Serializer\Type("array<string>")
+     * @Serializer\SkipWhenEmpty
      */
     protected $tags = [];
 

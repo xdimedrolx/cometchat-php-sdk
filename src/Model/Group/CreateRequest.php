@@ -71,12 +71,14 @@ class CreateRequest
      *
      * @var string[]
      * @Serializer\Type("array<string>")
+     * @Serializer\SkipWhenEmpty
      */
     protected $tags = [];
 
     /**
      * @var Metadata
      * @Serializer\Type("CometChat\Chat\Model\Metadata")
+     * @Serializer\SkipWhenEmpty
      */
     protected $metadata;
 
