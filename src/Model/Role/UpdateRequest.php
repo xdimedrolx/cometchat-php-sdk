@@ -12,7 +12,7 @@ class UpdateRequest
     /**
      * Friendly name of the role.
      *
-     * @var string
+     * @var string|null
      * @Serializer\Type("string")
      */
     protected $name;
@@ -50,32 +50,24 @@ class UpdateRequest
      */
     protected $unset = [];
 
-    public function __construct(string $role, string $name)
+    public function __construct()
     {
         $this->metadata = new Metadata();
         $this->settings = new Settings();
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getRole(): string
-    {
-        return $this->role;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
-     * @param string $name
+     * @param string|null $name
      */
-    public function setName(string $name): void
+    public function setName(?string $name): void
     {
         $this->name = $name;
     }
